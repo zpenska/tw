@@ -51,24 +51,31 @@ function getResponse(message: string): string {
 }
 
 export function ChatBot() {
+  const [isMounted, setIsMounted] = useState(false)
   const [isOpen, setIsOpen] = useState(false)
   const [messages, setMessages] = useState<Array<{text: string, isUser: boolean}>>([])
   const [inputValue, setInputValue] = useState('')
   const [isTyping, setIsTyping] = useState(false)
 
   useEffect(() => {
+    setIsMounted(true)
+  }, [])
+
+  useEffect(() => {
+    if (!isMounted) return
+
     const timer = setTimeout(() => {
       if (!isOpen && messages.length === 0) {
         setIsOpen(true)
         setMessages([{
-          text: "👋 Need help choosing the right Vuba Stone product? I'm here to assist!",
+          text: "Welcome! I'm here to help you find the perfect Vuba Stone solution for your property. How can I assist you today?",
           isUser: false
         }])
       }
     }, 5000)
 
     return () => clearTimeout(timer)
-  }, [isOpen, messages.length])
+  }, [isMounted, isOpen, messages.length])
 
   const sendMessage = () => {
     if (!inputValue.trim()) return
@@ -85,6 +92,10 @@ export function ChatBot() {
     }, 1000)
   }
 
+  if (!isMounted) {
+    return null
+  }
+
   return (
     <>
       <AnimatePresence>
@@ -93,27 +104,27 @@ export function ChatBot() {
             initial={{ opacity: 0, y: 20, scale: 0.95 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 20, scale: 0.95 }}
-            className="fixed bottom-24 right-6 z-50 w-96 max-w-[calc(100vw-3rem)] bg-white rounded-2xl shadow-2xl overflow-hidden"
+            className="fixed bottom-24 right-6 z-50 w-96 max-w-[calc(100vw-3rem)] bg-white rounded-2xl shadow-2xl border border-stone-200 overflow-hidden"
           >
-            <div className="bg-gradient-to-r from-teal-600 to-cyan-600 p-4 flex items-center justify-between">
+            <div className="bg-gradient-to-br from-stone-800 to-stone-900 p-4 flex items-center justify-between">
               <div className="flex items-center gap-3">
-                <div className="h-10 w-10 bg-white/20 rounded-full flex items-center justify-center">
-                  <ChatBubbleOvalLeftEllipsisIcon className="h-6 w-6 text-white" />
+                <div className="h-10 w-10 bg-white/10 backdrop-blur rounded-full flex items-center justify-center">
+                  <ChatBubbleOvalLeftEllipsisIcon className="h-6 w-6 text-white/90" />
                 </div>
                 <div>
-                  <h3 className="font-semibold text-white">Vuba Stone Assistant</h3>
-                  <p className="text-xs text-white/80">Typically replies instantly</p>
+                  <h3 className="font-display font-semibold text-white">Vuba Stone Assistant</h3>
+                  <p className="text-xs text-stone-300">Typically replies instantly</p>
                 </div>
               </div>
               <button
                 onClick={() => setIsOpen(false)}
-                className="text-white/80 hover:text-white transition-colors"
+                className="text-stone-300 hover:text-white transition-colors"
               >
                 <XMarkIcon className="h-5 w-5" />
               </button>
             </div>
 
-            <div className="h-96 overflow-y-auto p-4 space-y-4">
+            <div className="h-96 overflow-y-auto p-4 space-y-4 bg-gradient-to-b from-stone-50/50 to-white">
               {messages.map((message, index) => (
                 <motion.div
                   key={index}
@@ -124,8 +135,8 @@ export function ChatBot() {
                   <div
                     className={`max-w-[80%] px-4 py-3 rounded-2xl ${
                       message.isUser
-                        ? 'bg-gradient-to-r from-teal-600 to-cyan-600 text-white'
-                        : 'bg-stone-100 text-stone-800'
+                        ? 'bg-gradient-to-br from-stone-700 to-stone-800 text-white shadow-sm'
+                        : 'bg-white border border-stone-200 text-stone-700 shadow-sm'
                     }`}
                   >
                     <p className="text-sm">{message.text}</p>
@@ -138,7 +149,7 @@ export function ChatBot() {
                   animate={{ opacity: 1 }}
                   className="flex justify-start"
                 >
-                  <div className="bg-stone-100 px-4 py-3 rounded-2xl">
+                  <div className="bg-white border border-stone-200 px-4 py-3 rounded-2xl shadow-sm">
                     <div className="flex gap-1">
                       <span className="h-2 w-2 bg-stone-400 rounded-full animate-bounce" style={{ animationDelay: '0ms' }} />
                       <span className="h-2 w-2 bg-stone-400 rounded-full animate-bounce" style={{ animationDelay: '150ms' }} />
@@ -149,7 +160,7 @@ export function ChatBot() {
               )}
             </div>
 
-            <div className="p-4 border-t border-stone-200">
+            <div className="p-4 border-t border-stone-200 bg-stone-50/50">
               <form
                 onSubmit={(e) => {
                   e.preventDefault()
@@ -162,11 +173,11 @@ export function ChatBot() {
                   value={inputValue}
                   onChange={(e) => setInputValue(e.target.value)}
                   placeholder="Type your message..."
-                  className="flex-1 px-4 py-2 border border-stone-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-500"
+                  className="flex-1 px-4 py-2.5 bg-white border border-stone-300 rounded-xl text-stone-900 placeholder:text-stone-400 focus:outline-none focus:ring-2 focus:ring-stone-500 focus:border-transparent transition-all"
                 />
                 <button
                   type="submit"
-                  className="p-2 bg-gradient-to-r from-teal-600 to-cyan-600 text-white rounded-lg hover:from-teal-700 hover:to-cyan-700 transition-colors"
+                  className="p-2.5 bg-gradient-to-br from-stone-700 to-stone-800 text-white rounded-xl hover:from-stone-800 hover:to-stone-900 transition-all shadow-sm hover:shadow-md"
                 >
                   <PaperAirplaneIcon className="h-5 w-5" />
                 </button>
@@ -182,7 +193,7 @@ export function ChatBot() {
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.95 }}
         onClick={() => setIsOpen(!isOpen)}
-        className="fixed bottom-6 right-6 z-40 h-14 w-14 bg-gradient-to-r from-teal-600 to-cyan-600 text-white rounded-full shadow-lg hover:shadow-xl transition-shadow flex items-center justify-center"
+        className="fixed bottom-6 right-6 z-40 h-14 w-14 bg-gradient-to-br from-stone-700 to-stone-900 text-white rounded-full shadow-xl hover:shadow-2xl transition-all flex items-center justify-center border border-stone-600/20"
       >
         {isOpen ? (
           <XMarkIcon className="h-6 w-6" />

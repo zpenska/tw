@@ -14,6 +14,7 @@ import {
   MapPinIcon
 } from '@heroicons/react/16/solid'
 import { ChatBot } from '@/components/chatbot'
+import { LayeredDiagram } from '@/components/layered-diagram'
 import type { Metadata } from 'next'
 import Image from 'next/image'
 
@@ -25,35 +26,23 @@ export const metadata: Metadata = {
 function Hero() {
   return (
     <div className="relative overflow-hidden">
-      <div className="absolute inset-0 -z-10">
-        <video
-          autoPlay
-          muted
-          loop
-          playsInline
-          className="h-full w-full object-cover opacity-20"
-        >
-          <source src="/Generated File September 25, 2025 - 8_27PM.mp4" type="video/mp4" />
-        </video>
-        <div className="absolute inset-0 bg-gradient-to-b from-stone-50/90 via-stone-50/70 to-stone-50" />
-      </div>
       <Gradient className="absolute inset-2 bottom-0 rounded-4xl ring-1 ring-stone-200/20 ring-inset opacity-50" />
       <Container className="relative">
         <Navbar />
-        <div className="pt-16 pb-24 sm:pt-24 sm:pb-32 md:pt-32 md:pb-48">
+        <div className="pt-4 pb-24 sm:pt-8 sm:pb-32 md:pt-12 md:pb-48">
           <div className="flex flex-col items-center text-center">
             <Image
               src="/TWLogo.png"
               alt="The Workshop Surface Company"
-              width={600}
-              height={200}
+              width={450}
+              height={150}
               className="object-contain mb-12"
               priority
             />
-            <h1 className="font-display text-5xl/[0.9] font-medium tracking-tight text-balance text-stone-950 sm:text-6xl/[0.8] md:text-7xl/[0.8]">
+            <h1 className="font-display text-4xl/[1.1] font-medium tracking-tight text-balance text-stone-950 sm:text-5xl/[1.1] md:text-6xl/[1.1]">
               The Future of Flood-Resistant Surfaces
             </h1>
-            <p className="mt-8 max-w-lg text-xl/7 font-medium text-stone-800/90 sm:text-2xl/8">
+            <p className="mt-8 max-w-lg text-lg/7 font-medium text-stone-800/90 sm:text-xl/8">
               Premium Vuba Stone distribution for Florida and the Southeast. 100% waterproof, eco-friendly surfaces backed by 25-year warranty.
             </p>
             <div className="mt-12 flex flex-col gap-x-6 gap-y-4 sm:flex-row">
@@ -64,6 +53,61 @@ function Hero() {
                 Request Samples
               </Button>
             </div>
+          </div>
+        </div>
+      </Container>
+    </div>
+  )
+}
+
+function VideoShowcase() {
+  return (
+    <div className="bg-stone-900 py-24">
+      <Container>
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div>
+            <Subheading className="text-stone-300">See Vuba Stone in Action</Subheading>
+            <Heading as="h2" className="mt-2 text-white">
+              Watch How Vuba Stone Transforms Properties
+            </Heading>
+            <p className="mt-6 text-lg text-stone-300">
+              Experience the installation process and see the stunning results of Vuba Stone surfaces in real-world applications.
+            </p>
+            <div className="mt-8 space-y-4">
+              <div className="flex items-start gap-3">
+                <CheckCircleIcon className="h-6 w-6 text-stone-400 flex-shrink-0 mt-0.5" />
+                <div>
+                  <h3 className="font-semibold text-white">Professional Installation</h3>
+                  <p className="text-sm text-stone-400 mt-1">Watch our certified installers at work</p>
+                </div>
+              </div>
+              <div className="flex items-start gap-3">
+                <CheckCircleIcon className="h-6 w-6 text-stone-400 flex-shrink-0 mt-0.5" />
+                <div>
+                  <h3 className="font-semibold text-white">Flood Test Results</h3>
+                  <p className="text-sm text-stone-400 mt-1">See how Vuba Stone handles extreme conditions</p>
+                </div>
+              </div>
+              <div className="flex items-start gap-3">
+                <CheckCircleIcon className="h-6 w-6 text-stone-400 flex-shrink-0 mt-0.5" />
+                <div>
+                  <h3 className="font-semibold text-white">Before & After</h3>
+                  <p className="text-sm text-stone-400 mt-1">Dramatic transformations of Florida properties</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="relative aspect-video rounded-2xl overflow-hidden shadow-2xl">
+            <video
+              autoPlay
+              muted
+              loop
+              playsInline
+              controls
+              className="h-full w-full object-cover"
+            >
+              <source src="/Generated File September 25, 2025 - 8_27PM.mp4" type="video/mp4" />
+            </video>
           </div>
         </div>
       </Container>
@@ -132,7 +176,7 @@ function ProductSection() {
       description: 'Essential flood-resistant base layer technology. Perfect for new construction and major renovations.',
       features: ['100% Waterproof', 'Quick Installation', '10-Year Warranty'],
       gradient: 'from-gray-500 to-gray-600',
-      image: '/images/VubaMac_Base_Build_Up-01.png',
+      image: '/images/Alaskan_Tundra_Blend_14.jpg',
     },
     {
       name: 'Vuba Stone Classic',
@@ -421,6 +465,8 @@ export default function Home() {
       <Hero />
       <main>
         <FeatureSection />
+        <VideoShowcase />
+        <LayeredDiagram />
         <ProductSection />
         <GallerySection />
         <TestimonialsSection />

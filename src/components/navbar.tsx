@@ -8,7 +8,6 @@ import {
 import { Bars2Icon } from '@heroicons/react/24/solid'
 import { motion } from 'framer-motion'
 import { Link } from './link'
-import { TWLogoText } from './tw-logo'
 import { PlusGrid, PlusGridItem, PlusGridRow } from './plus-grid'
 import { Button } from './button'
 
@@ -23,24 +22,23 @@ const links = [
 
 function DesktopNav() {
   return (
-    <nav className="relative hidden lg:flex items-center">
-      {links.map(({ href, label }) => (
-        <PlusGridItem key={href} className="relative flex">
+    <nav className="relative hidden lg:flex items-center justify-between w-full">
+      <div className="flex items-center gap-8">
+        {links.map(({ href, label }) => (
           <Link
+            key={href}
             href={href}
-            className="flex items-center px-4 py-3 text-base font-medium text-stone-700 hover:text-stone-900 bg-blend-multiply data-hover:bg-black/2.5 transition-colors"
+            className="text-base font-medium text-stone-700 hover:text-stone-900 transition-colors"
           >
             {label}
           </Link>
-        </PlusGridItem>
-      ))}
-      <PlusGridItem className="relative flex ml-4">
-        <Link href="/crm">
-          <Button variant="primary">
-            CRM Login
-          </Button>
-        </Link>
-      </PlusGridItem>
+        ))}
+      </div>
+      <Link href="/crm">
+        <Button variant="primary">
+          CRM Login
+        </Button>
+      </Link>
     </nav>
   )
 }
@@ -104,19 +102,7 @@ export function Navbar({ banner }: { banner?: React.ReactNode }) {
   return (
     <Disclosure as="header" className="pt-12 sm:pt-16">
       <PlusGrid>
-        <PlusGridRow className="relative flex justify-between">
-          <div className="relative flex gap-6">
-            <PlusGridItem className="py-3">
-              <Link href="/" title="Home">
-                <TWLogoText className="h-20" />
-              </Link>
-            </PlusGridItem>
-            {banner && (
-              <div className="relative hidden items-center py-3 lg:flex">
-                {banner}
-              </div>
-            )}
-          </div>
+        <PlusGridRow className="relative flex justify-between items-center">
           <DesktopNav />
           <MobileNavButton />
         </PlusGridRow>
