@@ -5,7 +5,6 @@ import { Gradient } from '@/components/gradient'
 import { Navbar } from '@/components/navbar'
 import { Heading, Subheading } from '@/components/text'
 import {
-  ChevronRightIcon,
   ShieldCheckIcon,
   ClockIcon,
   BeakerIcon,
@@ -14,9 +13,9 @@ import {
   CheckCircleIcon,
   MapPinIcon
 } from '@heroicons/react/16/solid'
-import { Link } from '@/components/link'
 import { ChatBot } from '@/components/chatbot'
 import type { Metadata } from 'next'
+import Image from 'next/image'
 
 export const metadata: Metadata = {
   title: 'The Workshop Surface Company - Premium Vuba Stone Distribution',
@@ -196,9 +195,12 @@ function ProductSection() {
                   </li>
                 ))}
               </ul>
-              <Button href="#calculator" className="w-full">
-                Get Quote
-              </Button>
+              </div>
+              <div className="p-6 pt-0">
+                <Button href="#calculator" className="w-full">
+                  Get Quote
+                </Button>
+              </div>
             </div>
           </div>
         ))}
