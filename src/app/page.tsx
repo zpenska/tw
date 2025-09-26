@@ -40,17 +40,7 @@ function Hero() {
       </div>
       <Gradient className="absolute inset-2 bottom-0 rounded-4xl ring-1 ring-stone-200/20 ring-inset opacity-50" />
       <Container className="relative">
-        <Navbar
-          banner={
-            <Link
-              href="#calculator"
-              className="flex items-center gap-1 rounded-full bg-teal-900/20 px-3 py-0.5 text-sm/6 font-medium text-stone-900 data-hover:bg-teal-900/30"
-            >
-              Government Flood Grants Now Available - Save up to 40%
-              <ChevronRightIcon className="size-4" />
-            </Link>
-          }
-        />
+        <Navbar />
         <div className="pt-16 pb-24 sm:pt-24 sm:pb-32 md:pt-32 md:pb-48">
           <h1 className="font-display text-6xl/[0.9] font-medium tracking-tight text-balance text-stone-950 sm:text-8xl/[0.8] md:text-9xl/[0.8]">
             The Future of Flood-Resistant Surfaces
@@ -59,7 +49,7 @@ function Hero() {
             Premium Vuba Stone distribution for Florida and the Southeast. 100% waterproof, eco-friendly surfaces backed by 25-year warranty.
           </p>
           <div className="mt-12 flex flex-col gap-x-6 gap-y-4 sm:flex-row">
-            <Button href="#products" className="bg-gradient-to-r from-teal-600 to-teal-700 hover:from-teal-700 hover:to-teal-800">
+            <Button href="#products">
               Explore Products
             </Button>
             <Button variant="secondary" href="#calculator">
@@ -111,9 +101,9 @@ function FeatureSection() {
         <div className="mt-16 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
           {features.map((feature, index) => (
             <div key={index} className="relative group">
-              <div className="absolute -inset-1 bg-gradient-to-r from-teal-600 to-cyan-600 rounded-lg opacity-0 group-hover:opacity-20 transition duration-500" />
+              <div className="absolute -inset-1 bg-gradient-to-r from-fuchsia-600 to-purple-600 rounded-lg opacity-0 group-hover:opacity-20 transition duration-500" />
               <div className="relative bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow">
-                <feature.icon className="h-10 w-10 text-teal-600 mb-4" />
+                <feature.icon className="h-10 w-10 text-fuchsia-600 mb-4" />
                 <h3 className="text-lg font-semibold text-stone-900">{feature.title}</h3>
                 <p className="mt-2 text-sm text-stone-600">{feature.description}</p>
               </div>
@@ -132,29 +122,33 @@ function ProductSection() {
       price: '$12-15/sq ft',
       description: 'Essential flood-resistant base layer technology. Perfect for new construction and major renovations.',
       features: ['100% Waterproof', 'Quick Installation', '10-Year Warranty'],
-      gradient: 'from-stone-500 to-stone-600',
+      gradient: 'from-gray-500 to-gray-600',
+      image: '/images/VubaMac_Base_Build_Up-01.png',
     },
     {
       name: 'Vuba Stone Classic',
       price: '$18-22/sq ft',
       description: 'Our most popular line combining affordability with premium flood protection.',
       features: ['8 Color Options', 'Slip-Resistant', '15-Year Warranty'],
-      gradient: 'from-teal-500 to-teal-600',
+      gradient: 'from-fuchsia-500 to-purple-600',
       popular: true,
+      image: '/images/Manhattan_4f8d833e-8fde-4f4d-b4de-b5953f6dac18.jpg',
     },
     {
       name: 'Vuba Stone Premium',
       price: '$25-30/sq ft',
       description: 'Enhanced aesthetics with superior durability for discerning property owners.',
       features: ['12 Color Options', 'UV Resistant', '20-Year Warranty'],
-      gradient: 'from-cyan-500 to-cyan-600',
+      gradient: 'from-purple-500 to-pink-600',
+      image: '/images/MilanoMarble_a1935bf6-7774-4c79-91bc-ccf564f9dc07.jpg',
     },
     {
       name: 'Vuba Stone Ultra',
       price: '$35-40/sq ft',
       description: 'The pinnacle of flood-resistant surfacing with custom design options.',
       features: ['Custom Colors', 'Heat Reflective', '25-Year Warranty'],
-      gradient: 'from-emerald-500 to-emerald-600',
+      gradient: 'from-pink-500 to-fuchsia-600',
+      image: '/images/Versailles.jpg',
     },
   ]
 
@@ -176,24 +170,33 @@ function ProductSection() {
               </div>
             )}
             <div className={`absolute inset-0 bg-gradient-to-br ${product.gradient} rounded-2xl opacity-0 group-hover:opacity-10 transition-opacity duration-300`} />
-            <div className="relative bg-white rounded-2xl p-6 shadow-sm hover:shadow-xl transition-all duration-300 h-full flex flex-col">
-              <div className={`inline-flex rounded-lg bg-gradient-to-r ${product.gradient} p-3 mb-4 w-fit`}>
-                <SparklesIcon className="h-6 w-6 text-white" />
-              </div>
+            <div className="relative bg-white rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 h-full flex flex-col overflow-hidden">
+              {product.image && (
+                <div className="h-48 w-full relative mb-4">
+                  <Image
+                    src={product.image}
+                    alt={product.name}
+                    fill
+                    className="object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
+                </div>
+              )}
+              <div className="p-6 flex-grow flex flex-col">
               <h3 className="text-xl font-semibold text-stone-900 mb-2">{product.name}</h3>
-              <div className="text-2xl font-bold bg-gradient-to-r from-teal-600 to-cyan-600 bg-clip-text text-transparent mb-4">
+              <div className="text-2xl font-bold bg-gradient-to-r from-fuchsia-600 to-purple-600 bg-clip-text text-transparent mb-4">
                 {product.price}
               </div>
               <p className="text-sm text-stone-600 mb-4 flex-grow">{product.description}</p>
               <ul className="space-y-2 mb-6">
                 {product.features.map((feature, idx) => (
                   <li key={idx} className="flex items-center text-sm text-stone-700">
-                    <CheckCircleIcon className="h-4 w-4 text-teal-500 mr-2 flex-shrink-0" />
+                    <CheckCircleIcon className="h-4 w-4 text-fuchsia-500 mr-2 flex-shrink-0" />
                     {feature}
                   </li>
                 ))}
               </ul>
-              <Button href="#calculator" className="w-full bg-gradient-to-r from-stone-600 to-stone-700 hover:from-stone-700 hover:to-stone-800">
+              <Button href="#calculator" className="w-full">
                 Get Quote
               </Button>
             </div>
@@ -211,42 +214,42 @@ function GallerySection() {
       location: 'Boca Raton, FL',
       size: '12,000 sq ft',
       product: 'Vuba Stone Ultra',
-      image: 'from-cyan-400 to-teal-600',
+      image: '/images/Versailles.jpg',
     },
     {
       title: 'Miami Design District Plaza',
       location: 'Miami, FL',
       size: '25,000 sq ft',
       product: 'Vuba Stone Premium',
-      image: 'from-emerald-400 to-teal-600',
+      image: '/images/Manhattan_4f8d833e-8fde-4f4d-b4de-b5953f6dac18.jpg',
     },
     {
       title: 'Naples Country Club',
       location: 'Naples, FL',
       size: '18,000 sq ft',
       product: 'Vuba Stone Classic',
-      image: 'from-teal-400 to-cyan-600',
+      image: '/images/MilanoMarble_a1935bf6-7774-4c79-91bc-ccf564f9dc07.jpg',
     },
     {
       title: 'Tampa Bay Municipal Center',
       location: 'Tampa, FL',
       size: '35,000 sq ft',
       product: 'VubaMac Base System',
-      image: 'from-stone-400 to-stone-600',
+      image: '/images/Palazzo_05778205-57a6-48e4-a7be-8d2f030b1311.jpg',
     },
     {
       title: 'Fort Lauderdale Marina',
       location: 'Fort Lauderdale, FL',
       size: '22,000 sq ft',
       product: 'Vuba Stone Ultra',
-      image: 'from-blue-400 to-cyan-600',
+      image: '/images/IpanemaBeach_33e848c2-5ab9-40f9-97fd-a09500befe27.jpg',
     },
     {
       title: 'Orlando Theme Park Walkways',
       location: 'Orlando, FL',
       size: '45,000 sq ft',
       product: 'Vuba Stone Premium',
-      image: 'from-purple-400 to-blue-600',
+      image: '/images/EllisIsland.jpg',
     },
   ]
 
@@ -262,7 +265,14 @@ function GallerySection() {
           {projects.map((project, index) => (
             <div key={index} className="group cursor-pointer">
               <div className="relative overflow-hidden rounded-2xl">
-                <div className={`aspect-[4/3] bg-gradient-to-br ${project.image}`} />
+                <div className="aspect-[4/3] relative">
+                  <Image
+                    src={project.image}
+                    alt={project.title}
+                    fill
+                    className="object-cover"
+                  />
+                </div>
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                   <div className="absolute bottom-0 p-6 text-white">
                     <h3 className="text-xl font-semibold mb-1">{project.title}</h3>
@@ -351,9 +361,9 @@ function QuoteCalculator() {
                 <input
                   type="text"
                   placeholder="Project Size (sq ft)"
-                  className="w-full rounded-lg bg-white/90 px-4 py-3 text-stone-900 placeholder:text-stone-500 focus:outline-none focus:ring-2 focus:ring-teal-500"
+                  className="w-full rounded-lg bg-white/90 px-4 py-3 text-stone-900 placeholder:text-stone-500 focus:outline-none focus:ring-2 focus:ring-fuchsia-500"
                 />
-                <select className="w-full rounded-lg bg-white/90 px-4 py-3 text-stone-900 focus:outline-none focus:ring-2 focus:ring-teal-500">
+                <select className="w-full rounded-lg bg-white/90 px-4 py-3 text-stone-900 focus:outline-none focus:ring-2 focus:ring-fuchsia-500">
                   <option>Select Product</option>
                   <option>VubaMac Base System</option>
                   <option>Vuba Stone Classic</option>
@@ -366,24 +376,24 @@ function QuoteCalculator() {
                 <input
                   type="email"
                   placeholder="Email Address"
-                  className="w-full rounded-lg bg-white/90 px-4 py-3 text-stone-900 placeholder:text-stone-500 focus:outline-none focus:ring-2 focus:ring-teal-500"
+                  className="w-full rounded-lg bg-white/90 px-4 py-3 text-stone-900 placeholder:text-stone-500 focus:outline-none focus:ring-2 focus:ring-fuchsia-500"
                 />
                 <input
                   type="tel"
                   placeholder="Phone Number"
-                  className="w-full rounded-lg bg-white/90 px-4 py-3 text-stone-900 placeholder:text-stone-500 focus:outline-none focus:ring-2 focus:ring-teal-500"
+                  className="w-full rounded-lg bg-white/90 px-4 py-3 text-stone-900 placeholder:text-stone-500 focus:outline-none focus:ring-2 focus:ring-fuchsia-500"
                 />
               </div>
 
-              <Button className="w-full bg-gradient-to-r from-teal-600 to-cyan-600 hover:from-teal-700 hover:to-cyan-700">
+              <Button className="w-full">
                 Calculate Quote
               </Button>
             </form>
 
             <div className="mt-8 flex items-center justify-center gap-4 text-sm text-stone-300">
-              <CheckCircleIcon className="h-5 w-5 text-teal-400" />
+              <CheckCircleIcon className="h-5 w-5 text-fuchsia-400" />
               <span>Free consultation included</span>
-              <CheckCircleIcon className="h-5 w-5 text-teal-400" />
+              <CheckCircleIcon className="h-5 w-5 text-fuchsia-400" />
               <span>No obligation</span>
             </div>
           </div>

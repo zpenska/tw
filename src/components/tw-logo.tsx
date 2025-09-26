@@ -61,8 +61,8 @@ export function TWLogoText({ className }: { className?: string }) {
     <Image
       src="/TWLogo.png"
       alt="The Workshop Surface Company"
-      width={140}
-      height={50}
+      width={220}
+      height={80}
       className={clsx('object-contain', className)}
       priority
     />

@@ -3,7 +3,7 @@ import { Button } from './button'
 import { Container } from './container'
 import { Gradient } from './gradient'
 import { Link } from './link'
-import { Logo } from './logo'
+import { TWLogoText } from './tw-logo'
 import { Subheading } from './text'
 
 function CallToAction() {
@@ -12,14 +12,14 @@ function CallToAction() {
       <hgroup>
         <Subheading>Get started</Subheading>
         <p className="mt-6 text-3xl font-medium tracking-tight text-gray-950 sm:text-5xl">
-          Ready to dive in?
+          Transform Your Space
           <br />
-          Start your free trial today.
+          with Vuba Stone Surfaces
         </p>
       </hgroup>
       <p className="mx-auto mt-6 max-w-xs text-sm/6 text-gray-500">
-        Get the cheat codes for selling and unlock your team&apos;s revenue
-        potential.
+        Transform your property with Florida&apos;s premier flood-resistant surfaces.
+        Get a free consultation today.
       </p>
       <div className="mt-6">
         <Button className="w-full sm:w-auto" href="#">
@@ -148,7 +148,7 @@ function SocialLinks() {
 function Copyright() {
   return (
     <div className="text-sm/6 text-gray-950">
-      &copy; {new Date().getFullYear()} Radiant Inc.
+      &copy; {new Date().getFullYear()} The Workshop Surface Company. All rights reserved.
     </div>
   )
 }
@@ -165,7 +165,7 @@ export function Footer() {
               <div className="grid grid-cols-2 gap-y-10 pb-6 lg:grid-cols-6 lg:gap-8">
                 <div className="col-span-2 flex">
                   <PlusGridItem className="pt-6 lg:pb-6">
-                    <Logo className="h-9" />
+                    <TWLogoText className="h-12" />
                   </PlusGridItem>
                 </div>
                 <div className="col-span-2 grid grid-cols-2 gap-x-8 gap-y-12 lg:col-span-4 lg:grid-cols-subgrid lg:pt-6">
