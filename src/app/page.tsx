@@ -41,19 +41,29 @@ function Hero() {
       <Container className="relative">
         <Navbar />
         <div className="pt-16 pb-24 sm:pt-24 sm:pb-32 md:pt-32 md:pb-48">
-          <h1 className="font-display text-6xl/[0.9] font-medium tracking-tight text-balance text-stone-950 sm:text-8xl/[0.8] md:text-9xl/[0.8]">
-            The Future of Flood-Resistant Surfaces
-          </h1>
-          <p className="mt-8 max-w-lg text-xl/7 font-medium text-stone-800/90 sm:text-2xl/8">
-            Premium Vuba Stone distribution for Florida and the Southeast. 100% waterproof, eco-friendly surfaces backed by 25-year warranty.
-          </p>
-          <div className="mt-12 flex flex-col gap-x-6 gap-y-4 sm:flex-row">
-            <Button href="#products">
-              Explore Products
-            </Button>
-            <Button variant="secondary" href="#calculator">
-              Request Samples
-            </Button>
+          <div className="flex flex-col items-center text-center">
+            <Image
+              src="/TWLogo.png"
+              alt="The Workshop Surface Company"
+              width={600}
+              height={200}
+              className="object-contain mb-12"
+              priority
+            />
+            <h1 className="font-display text-5xl/[0.9] font-medium tracking-tight text-balance text-stone-950 sm:text-6xl/[0.8] md:text-7xl/[0.8]">
+              The Future of Flood-Resistant Surfaces
+            </h1>
+            <p className="mt-8 max-w-lg text-xl/7 font-medium text-stone-800/90 sm:text-2xl/8">
+              Premium Vuba Stone distribution for Florida and the Southeast. 100% waterproof, eco-friendly surfaces backed by 25-year warranty.
+            </p>
+            <div className="mt-12 flex flex-col gap-x-6 gap-y-4 sm:flex-row">
+              <Button href="#products">
+                Explore Products
+              </Button>
+              <Button variant="secondary" href="#calculator">
+                Request Samples
+              </Button>
+            </div>
           </div>
         </div>
       </Container>
@@ -100,9 +110,9 @@ function FeatureSection() {
         <div className="mt-16 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
           {features.map((feature, index) => (
             <div key={index} className="relative group">
-              <div className="absolute -inset-1 bg-gradient-to-r from-fuchsia-600 to-purple-600 rounded-lg opacity-0 group-hover:opacity-20 transition duration-500" />
+              <div className="absolute -inset-1 bg-gradient-to-r from-stone-600 to-stone-700 rounded-lg opacity-0 group-hover:opacity-20 transition duration-500" />
               <div className="relative bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow">
-                <feature.icon className="h-10 w-10 text-fuchsia-600 mb-4" />
+                <feature.icon className="h-10 w-10 text-stone-600 mb-4" />
                 <h3 className="text-lg font-semibold text-stone-900">{feature.title}</h3>
                 <p className="mt-2 text-sm text-stone-600">{feature.description}</p>
               </div>
@@ -129,7 +139,7 @@ function ProductSection() {
       price: '$18-22/sq ft',
       description: 'Our most popular line combining affordability with premium flood protection.',
       features: ['8 Color Options', 'Slip-Resistant', '15-Year Warranty'],
-      gradient: 'from-fuchsia-500 to-purple-600',
+      gradient: 'from-stone-600 to-stone-700',
       popular: true,
       image: '/images/Manhattan_4f8d833e-8fde-4f4d-b4de-b5953f6dac18.jpg',
     },
@@ -138,7 +148,7 @@ function ProductSection() {
       price: '$25-30/sq ft',
       description: 'Enhanced aesthetics with superior durability for discerning property owners.',
       features: ['12 Color Options', 'UV Resistant', '20-Year Warranty'],
-      gradient: 'from-purple-500 to-pink-600',
+      gradient: 'from-stone-500 to-stone-600',
       image: '/images/MilanoMarble_a1935bf6-7774-4c79-91bc-ccf564f9dc07.jpg',
     },
     {
@@ -146,7 +156,7 @@ function ProductSection() {
       price: '$35-40/sq ft',
       description: 'The pinnacle of flood-resistant surfacing with custom design options.',
       features: ['Custom Colors', 'Heat Reflective', '25-Year Warranty'],
-      gradient: 'from-pink-500 to-fuchsia-600',
+      gradient: 'from-stone-700 to-stone-800',
       image: '/images/Versailles.jpg',
     },
   ]
@@ -183,14 +193,14 @@ function ProductSection() {
               )}
               <div className="p-6 flex-grow flex flex-col">
               <h3 className="text-xl font-semibold text-stone-900 mb-2">{product.name}</h3>
-              <div className="text-2xl font-bold bg-gradient-to-r from-fuchsia-600 to-purple-600 bg-clip-text text-transparent mb-4">
+              <div className="text-2xl font-bold text-stone-900 mb-4">
                 {product.price}
               </div>
               <p className="text-sm text-stone-600 mb-4 flex-grow">{product.description}</p>
               <ul className="space-y-2 mb-6">
                 {product.features.map((feature, idx) => (
                   <li key={idx} className="flex items-center text-sm text-stone-700">
-                    <CheckCircleIcon className="h-4 w-4 text-fuchsia-500 mr-2 flex-shrink-0" />
+                    <CheckCircleIcon className="h-4 w-4 text-stone-500 mr-2 flex-shrink-0" />
                     {feature}
                   </li>
                 ))}
@@ -363,9 +373,9 @@ function QuoteCalculator() {
                 <input
                   type="text"
                   placeholder="Project Size (sq ft)"
-                  className="w-full rounded-lg bg-white/90 px-4 py-3 text-stone-900 placeholder:text-stone-500 focus:outline-none focus:ring-2 focus:ring-fuchsia-500"
+                  className="w-full rounded-lg bg-white/90 px-4 py-3 text-stone-900 placeholder:text-stone-500 focus:outline-none focus:ring-2 focus:ring-stone-500"
                 />
-                <select className="w-full rounded-lg bg-white/90 px-4 py-3 text-stone-900 focus:outline-none focus:ring-2 focus:ring-fuchsia-500">
+                <select className="w-full rounded-lg bg-white/90 px-4 py-3 text-stone-900 focus:outline-none focus:ring-2 focus:ring-stone-500">
                   <option>Select Product</option>
                   <option>VubaMac Base System</option>
                   <option>Vuba Stone Classic</option>
@@ -378,12 +388,12 @@ function QuoteCalculator() {
                 <input
                   type="email"
                   placeholder="Email Address"
-                  className="w-full rounded-lg bg-white/90 px-4 py-3 text-stone-900 placeholder:text-stone-500 focus:outline-none focus:ring-2 focus:ring-fuchsia-500"
+                  className="w-full rounded-lg bg-white/90 px-4 py-3 text-stone-900 placeholder:text-stone-500 focus:outline-none focus:ring-2 focus:ring-stone-500"
                 />
                 <input
                   type="tel"
                   placeholder="Phone Number"
-                  className="w-full rounded-lg bg-white/90 px-4 py-3 text-stone-900 placeholder:text-stone-500 focus:outline-none focus:ring-2 focus:ring-fuchsia-500"
+                  className="w-full rounded-lg bg-white/90 px-4 py-3 text-stone-900 placeholder:text-stone-500 focus:outline-none focus:ring-2 focus:ring-stone-500"
                 />
               </div>
 
@@ -393,9 +403,9 @@ function QuoteCalculator() {
             </form>
 
             <div className="mt-8 flex items-center justify-center gap-4 text-sm text-stone-300">
-              <CheckCircleIcon className="h-5 w-5 text-fuchsia-400" />
+              <CheckCircleIcon className="h-5 w-5 text-stone-400" />
               <span>Free consultation included</span>
-              <CheckCircleIcon className="h-5 w-5 text-fuchsia-400" />
+              <CheckCircleIcon className="h-5 w-5 text-stone-400" />
               <span>No obligation</span>
             </div>
           </div>

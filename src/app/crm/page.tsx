@@ -125,7 +125,7 @@ export default function CRM() {
           className="text-center"
         >
           <div className="animate-pulse">
-            <div className="h-2 w-48 bg-gradient-to-r from-fuchsia-600 to-purple-600 rounded-full mx-auto" />
+            <div className="h-2 w-48 bg-gradient-to-r from-stone-600 to-stone-700 rounded-full mx-auto" />
           </div>
         </motion.div>
       </div>
@@ -164,7 +164,7 @@ export default function CRM() {
                 <input
                   type="text"
                   placeholder="Search deals, contacts..."
-                  className="pl-10 pr-4 py-2 border border-gray-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-fuchsia-500 focus:border-transparent w-64"
+                  className="pl-10 pr-4 py-2 border border-gray-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-stone-500 focus:border-transparent w-64"
                 />
               </div>
               <button className="p-2 text-gray-600 hover:text-gray-900 hover:bg-gray-50 rounded-lg transition-colors">
@@ -221,7 +221,7 @@ export default function CRM() {
                   <FunnelIcon className="h-4 w-4" />
                   Filter
                 </button>
-                <button className="px-4 py-2 text-sm bg-gradient-to-r from-fuchsia-600 to-purple-600 text-white rounded-lg hover:from-fuchsia-700 hover:to-purple-700 transition-colors flex items-center gap-2">
+                <button className="px-4 py-2 text-sm bg-gradient-to-r from-stone-700 to-stone-800 text-white rounded-lg hover:from-stone-800 hover:to-stone-900 transition-colors flex items-center gap-2">
                   <PlusIcon className="h-4 w-4" />
                   New Deal
                 </button>
@@ -298,7 +298,7 @@ export default function CRM() {
                       <div className="flex items-center">
                         <div className="w-16 bg-gray-200 rounded-full h-2 mr-2">
                           <div
-                            className="bg-gradient-to-r from-fuchsia-600 to-purple-600 h-2 rounded-full"
+                            className="bg-gradient-to-r from-stone-600 to-stone-700 h-2 rounded-full"
                             style={{ width: `${deal.probability}%` }}
                           />
                         </div>
@@ -310,7 +310,7 @@ export default function CRM() {
                     </td>
                     <td className="px-6 py-4">
                       <div className="flex items-center">
-                        <div className="h-6 w-6 rounded-full bg-gradient-to-br from-fuchsia-400 to-purple-600 mr-2" />
+                        <div className="h-6 w-6 rounded-full bg-gradient-to-br from-stone-400 to-stone-600 mr-2" />
                         <span className="text-sm text-gray-900">{deal.owner}</span>
                       </div>
                     </td>
@@ -358,7 +358,7 @@ export default function CRM() {
                       <div className="text-xs font-medium text-gray-900">Sample Deal {card}</div>
                       <div className="text-xs text-gray-500 mt-1">$25,000</div>
                       <div className="flex items-center mt-2">
-                        <div className="h-4 w-4 rounded-full bg-gradient-to-br from-fuchsia-400 to-purple-600" />
+                        <div className="h-4 w-4 rounded-full bg-gradient-to-br from-stone-400 to-stone-600" />
                         <span className="text-xs text-gray-500 ml-1">2 days ago</span>
                       </div>
                     </div>
