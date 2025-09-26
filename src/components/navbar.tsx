@@ -36,7 +36,7 @@ function DesktopNav() {
       ))}
       <PlusGridItem className="relative flex ml-4">
         <Link href="/crm">
-          <Button variant="primary" className="bg-gradient-to-r from-flood-600 to-flood-700 hover:from-flood-700 hover:to-flood-800">
+          <Button variant="primary" className="bg-gradient-to-r from-teal-600 to-teal-700 hover:from-teal-700 hover:to-teal-800">
             CRM Login
           </Button>
         </Link>
@@ -86,7 +86,7 @@ function MobileNav() {
           }}
         >
           <Link href="/crm">
-            <Button variant="primary" className="w-full bg-gradient-to-r from-flood-600 to-flood-700">
+            <Button variant="primary" className="w-full bg-gradient-to-r from-teal-600 to-teal-700">
               CRM Login
             </Button>
           </Link>

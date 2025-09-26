@@ -1,13 +1,12 @@
-import { SanityLive } from '@/sanity/live'
-import { revalidateSyncTags } from '@/sanity/revalidateSyncTags'
 import '@/styles/tailwind.css'
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
   title: {
-    template: '%s - Radiant',
-    default: 'Radiant - Close every deal',
+    template: '%s - The Workshop Surface Company',
+    default: 'The Workshop Surface Company - Premium Vuba Stone Solutions',
   },
+  description: 'The Workshop Surface Company - Flood-resistant, environmentally-friendly Vuba Stone surfacing systems for Florida and the Southeast.',
 }
 
 export default function RootLayout({
@@ -22,16 +21,9 @@ export default function RootLayout({
           rel="stylesheet"
           href="https://api.fontshare.com/css?f%5B%5D=switzer@400,500,600,700&amp;display=swap"
         />
-        <link
-          rel="alternate"
-          type="application/rss+xml"
-          title="The Radiant Blog"
-          href="/blog/feed.xml"
-        />
       </head>
       <body className="text-gray-950 antialiased">
         {children}
-        <SanityLive revalidateSyncTags={revalidateSyncTags} />
       </body>
     </html>
   )

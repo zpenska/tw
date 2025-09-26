@@ -39,21 +39,16 @@ export function TWLogoMinimal({ className }: { className?: string }) {
     >
       <motion.div
         className="text-3xl font-bold tracking-tighter"
-        variants={{
-          idle: {
-            background: 'linear-gradient(135deg, #27272a 0%, #52525b 100%)',
-            WebkitBackgroundClip: 'text',
-            WebkitTextFillColor: 'transparent',
-            scale: 1
-          },
-          active: {
-            background: 'linear-gradient(135deg, #0d9488 0%, #14b8a6 100%)',
-            WebkitBackgroundClip: 'text',
-            WebkitTextFillColor: 'transparent',
-            scale: 1.05,
-            transition
-          }
+        style={{
+          background: 'linear-gradient(135deg, #27272a 0%, #52525b 100%)',
+          WebkitBackgroundClip: 'text',
+          WebkitTextFillColor: 'transparent',
         }}
+        whileHover={{
+          background: 'linear-gradient(135deg, #0d9488 0%, #14b8a6 100%)',
+          scale: 1.05,
+        }}
+        transition={transition}
       >
         TW
       </motion.div>
@@ -63,16 +58,13 @@ export function TWLogoMinimal({ className }: { className?: string }) {
 
 export function TWLogoText({ className }: { className?: string }) {
   return (
-    <div className={clsx('flex items-center gap-3', className)}>
-      <TWLogoMinimal />
-      <div className="flex flex-col">
-        <span className="text-sm font-semibold text-stone-900 leading-tight">
-          The Workshop
-        </span>
-        <span className="text-xs text-stone-600 leading-tight">
-          Surface Company
-        </span>
-      </div>
-    </div>
+    <Image
+      src="/TWLogo.png"
+      alt="The Workshop Surface Company"
+      width={140}
+      height={50}
+      className={clsx('object-contain', className)}
+      priority
+    />
   )
 }
