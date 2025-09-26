@@ -1,0 +1,53 @@
+@import 'tailwindcss';
+
+@theme {
+  --font-sans: Switzer, system-ui, sans-serif;
+
+  --radius-4xl: 2rem;
+
+  /* Stone Industry Colors */
+  --color-stone-50: #fafafa;
+  --color-stone-100: #f4f4f5;
+  --color-stone-200: #e4e4e7;
+  --color-stone-300: #d4d4d8;
+  --color-stone-400: #a1a1aa;
+  --color-stone-500: #71717a;
+  --color-stone-600: #52525b;
+  --color-stone-700: #3f3f46;
+  --color-stone-800: #27272a;
+  --color-stone-900: #18181b;
+  --color-stone-950: #09090b;
+
+  /* Flood/Water Theme Colors */
+  --color-flood-50: #f0fdfa;
+  --color-flood-100: #ccfbf1;
+  --color-flood-200: #99f6e4;
+  --color-flood-300: #5eead4;
+  --color-flood-400: #2dd4bf;
+  --color-flood-500: #14b8a6;
+  --color-flood-600: #0d9488;
+  --color-flood-700: #0f766e;
+  --color-flood-800: #115e59;
+  --color-flood-900: #134e4a;
+
+  /* Premium Gold Accent */
+  --color-gold-50: #fefce8;
+  --color-gold-100: #fef9c3;
+  --color-gold-200: #fef08a;
+  --color-gold-300: #fde047;
+  --color-gold-400: #facc15;
+  --color-gold-500: #eab308;
+  --color-gold-600: #ca8a04;
+  --color-gold-700: #a16207;
+  --color-gold-800: #854d0e;
+  --color-gold-900: #713f12;
+}
+
+@keyframes move-x {
+  0% {
+    transform: translateX(var(--move-x-from));
+  }
+  100% {
+    transform: translateX(var(--move-x-to));
+  }
+}
